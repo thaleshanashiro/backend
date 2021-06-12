@@ -64,7 +64,7 @@ app.get('/times',function(req, res)  {
        console.log(req.body.time);
        const time = req.body.time;
        times.push(time);
-       res.send("Adcionar um time")
+       res.send("Adicionar um time")
   }
   );
 
