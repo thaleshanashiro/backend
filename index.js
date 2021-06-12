@@ -35,7 +35,7 @@ const times = [
    {time: "Juventude", estado: "  Rio Grande do Sul "},
    {time: "Palmeiras ", estado: " Sao Paulo "},
    {time: "Bragantino", estado: " Sao Paulo "},
-   {time: "Sporte Recife", estado: " Pernambuco "},
+   {time: "Sport Recife", estado: " Pernambuco "},
    {time: "Atletico MG", estado: " Minas Gerais"}
    
   ];
