@@ -35,7 +35,7 @@ const times = [
    {time: "Juventude", estado: "  Rio Grande do Sul "},
    {time: "Palmeiras ", estado: " Sao Paulo "},
    {time: "Bragantino", estado: " Sao Paulo "},
-   {time: "Sport Recife", estado: " Pernambuco "},
+   {time: "Sporte Recife", estado: " Pernambuco "},
    {time: "Atletico MG", estado: " Minas Gerais"}
    
   ];
@@ -64,7 +64,7 @@ app.get('/times',function(req, res)  {
        console.log(req.body.time);
        const time = req.body.time;
        times.push(time);
-       res.send("Adicionar um time")
+       res.send("Adcionar um time")
   }
   );
 
