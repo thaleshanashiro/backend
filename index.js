@@ -11,7 +11,7 @@ app.listen(process.env.PORT || 3000);
 
 app.get('/hello',
 function (req, res){    
-    res.send("Hello de Novo");
+    res.send("Times da Série A");
     }
 )
 
