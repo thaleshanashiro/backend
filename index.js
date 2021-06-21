@@ -9,19 +9,13 @@ app.use(cors());
 // Porta que eu estou ouvindo
 app.listen(process.env.PORT || 3000);
 
-app.get('/', 
-    function (req, res){    
-        res.send("Hello World");
-    }
-);
-
 app.get('/hello',
 function (req, res){    
     res.send("Hello de Novo");
     }
 )
 
-const mesagens = [ 
+const mensagens = [ 
    {time: "Corinthians ", estado: " Sao Paulo " }, 
    {time: "Santos ", estado: " Sao Paulo" }, 
    {time: "Sao Paulo ", estado: " Sao Paulo "},
