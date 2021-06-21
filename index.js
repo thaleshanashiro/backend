@@ -9,67 +9,75 @@ app.use(cors());
 // Porta que eu estou ouvindo
 app.listen(process.env.PORT || 3000);
 
-app.get('/', 
-    function (req, res){    
-        res.send("Hello World");
+app.get('/', function (req, res){    
+        res.send("Times do Campeonato Brasileiro 2021, Série A.");
     }
 );
 
-app.get('/hello',
-function (req, res){    
-    res.send("Hello de Novo");
-    }
-)
+//Array de um object com os nomes dos times e o Estado de cada um 
+const times = [ 
+  {time: "Corinthians "}, 
+  {time: "Santos "}, 
+  {time: "Sao Paulo "},
+  {time: "Flamengo "},
+  {time: "America-MG "},
+  {time: "Atletico-PR "},
+  {time: "Atletico-GO"},
+  {time: "Bahia"},
+  {time: "Ceara SC "},
+  {time: "Chapecoense"},
+  {time: "Cuiaba "},
+  {time: "Fluminense"},
+  {time: "Fortaleza"},
+  {time: "Gremio"},
+  {time: "Internacional"},
+  {time: "Juventude"},
+  {time: "Palmeiras "},
+  {time: "Bragantino"},
+  {time: "Sporte Recife"},
+  {time: "Atletico MG"}
+  
+ ];
 
-const mensagens = [
-    "Elziele da Rocha", "Lucas Canova dos Santos", 0 
-];
-
-app.get('/mensagens',
-    function(req, res){
-        // res.send(mensagens);
-        res.send(mensagens.filter(Boolean));
-    }
+//busca no banco de dados usando o id, ou seja, busca cada linha da matriz em especifico
+app.get('/times/:id', function(req, res){
+  const id = req.params.id - 1;
+  const mensagem = times [id];
+  if (!mensagem){
+    res.send("mensagem nao encontrada");
+         }
+         else {
+           res.send(mensagem);
+         }
+}
 );
 
-app.get('/mensagens/:id',
-    function(req, res){
-        const id = req.params.id - 1;
-        const time = times[id];
-
-        if (!time){
-            res.send("Time não encontrado");
-        } else {
-            res.send(time);
-        }
-    }
-)
-
-app.post('/mensagens', 
-    (req, res) => {
-        console.log(req.body.time);
-        const time = req.body.time;
-        mensagens.push(time);
-        res.send("Adicionar um time.")
-    }
+//adciona um time na matriz 
+app.post('/times', (req,res) =>{
+    console.log(req.body.mensagem);
+    const mensagem = req.body.mensagem;
+    times.push(mensagem);
+    res.send("Adcionar um time")
+}
 );
 
-app.put('/mensagens/:id',
-    (req, res) => {
-        const id = req.params.id - 1;
-        const time = req.body.time;
-        mensagens[id] = time;        
-        res.send("Time atualizado com sucesso.")
-    }
+//troca um time da matriz por outro
+app.put('/times/:id', 
+  (req, res) => {
+    const id = req.params.id -1;
+    const mensagem = req.body.mensagem;
+    times[id] = mensagem;
+    res.send("time atulizado com sucesso")
+  }
 )
 
-app.delete('/mensagens/:id', 
-    (req, res) => {
-        const id = req.params.id - 1;
-        delete times[id];
-
-        res.send("Time removido com sucesso");
-    }
+//deleta um time da matriz
+app.delete('/times/:id',
+(req, res) => {
+  const id = req.params.id -1;
+  delete times[id];
+  res.send("time removida com sucesso");
+}
 );
 
 /*
@@ -102,14 +110,14 @@ const options = {
 app.get('/database/:id',
     async function(req, res){
         const id = req.params.id;
-        const time = await times.findOne(
+        const mensagem = await times.findOne(
             {_id : mongodb.ObjectID(id)}
         );
-        console.log(time);
-        if (!time){
+        console.log(mensagem);
+        if (!mensagem){
             res.send("Time não encontrado");
         } else {
-            res.send(time);
+            res.send(mensagem);
         }
     }
 );
@@ -117,11 +125,11 @@ app.get('/database/:id',
 app.post('/database', 
     async (req, res) => {
         console.log(req.body);
-        const time = req.body;
+        const mensagem = req.body;
         
-        delete time["_id"];
+        delete mensagem["_id"];
 
-        mensagens.insertOne(time);        
+        mensagens.insertOne(mensagem);        
         res.send("Adicionar um time.");
     }
 );
@@ -129,13 +137,13 @@ app.post('/database',
 app.put('/database/:id',
     async (req, res) => {
         const id = req.params.id;
-        const time = req.body;
+        const mensagem = req.body;
 
-        console.log(time);
+        console.log(mensagem);
 
-        delete time["_id"];
+        delete mensagem["_id"];
 
-        const num_mtimes = await times.countDocuments({_id : mongodb.ObjectID(id)});
+        const num_times = await times.countDocuments({_id : mongodb.ObjectID(id)});
 
         if (num_times !== 1) {
             res.send('Ocorreu um erro por conta do número de times');
@@ -144,7 +152,7 @@ app.put('/database/:id',
 
         await mensagens.updateOne(
             {_id : mongodb.ObjectID(id)},
-            {$set : time}
+            {$set : mensagem}
         );
         
         res.send("Time atualizado com sucesso.")
@@ -174,3 +182,5 @@ client.connect(err => {
   // perform actions on the collection object
   client.close();
 });
+
+*/
