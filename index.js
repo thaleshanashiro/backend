@@ -94,7 +94,7 @@ const mongodb = require('mongodb')
 const password = process.env.PASSWORD || "asdf";
 console.log(password);
 
-const connectionString = `mongodb+srv://admin:${password}@cluster0.fhdc2.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
+const connectionString = `mongodb+srv://admin:${password}cluster0.tomq4.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
 
 const options = { 
     useNewUrlParser: true, 
