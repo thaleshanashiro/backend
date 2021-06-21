@@ -16,26 +16,26 @@ function (req, res){
 )
 
 const mensagens = [ 
-   {time: "Corinthians ", estado: " Sao Paulo " }, 
-   {time: "Santos ", estado: " Sao Paulo" }, 
-   {time: "Sao Paulo ", estado: " Sao Paulo "},
-   {time: "Flamengo ", estado: " Rio De Janeiro "},
-   {time: "America-MG ", estado: "Minas Gerais"},
-   {time: "Atletico-PR ", estado: "Parana"},
-   {time: "Atletico-GO", estado: "Goiais"},
-   {time: "Bahia", estado: "Bahia"},
-   {time: "Ceara SC ", estado: "Ceara"},
-   {time: "Chapecoense", estado: " Santa Catarina"},
-   {time: "Cuiaba ", estado: " Mato Grosso"},
-   {time: "Fluminense", estado: " Rio De Janeiro "},
-   {time: "Fortaleza", estado: " Ceara "},
-   {time: "Gremio", estado: " Rio Grande do Sul "},
-   {time: "Internacional", estado: " Rio Grande do Sul "},
-   {time: "Juventude", estado: "  Rio Grande do Sul "},
-   {time: "Palmeiras ", estado: " Sao Paulo "},
-   {time: "Bragantino", estado: " Sao Paulo "},
-   {time: "Sporte Recife", estado: " Pernambuco "},
-   {time: "Atletico MG", estado: " Minas Gerais"}
+   {time: "Corinthians "}, 
+   {time: "Santos "}, 
+   {time: "Sao Paulo "},
+   {time: "Flamengo "},
+   {time: "America-MG "},
+   {time: "Atletico-PR "},
+   {time: "Atletico-GO"},
+   {time: "Bahia"},
+   {time: "Ceara SC "},
+   {time: "Chapecoense"},
+   {time: "Cuiaba "},
+   {time: "Fluminense"},
+   {time: "Fortaleza"},
+   {time: "Gremio"},
+   {time: "Internacional"},
+   {time: "Juventude"},
+   {time: "Palmeiras "},
+   {time: "Bragantino"},
+   {time: "Sporte Recife"},
+   {time: "Atletico MG"}
    
   ];
 
@@ -85,4 +85,3 @@ app.delete('/mensagens/:id',
         res.send("Mensagem removida com sucesso");
     }
 );
-
